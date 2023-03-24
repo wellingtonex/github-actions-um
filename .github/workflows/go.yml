@@ -33,6 +33,12 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    env:
+      HOST: localhost
+      USER: root
+      PASSWORD: root
+      DBNAME: root 
+      DBPORT: 5432
     steps:
     - uses: actions/checkout@v3
 
@@ -43,8 +49,3 @@ jobs:
 
     - name: Build
       run: go build -v main.go
-      
-    - name: Show secret
-      env:
-        TESTE: ${{ secrets.TESTE }}
-      run: echo $TESTE
