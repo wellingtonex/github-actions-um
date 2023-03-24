@@ -10,6 +10,12 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    env:
+      HOST: localhost
+      PORT: 5432
+      USER: root
+      PASSWORD: root
+      DBNAME: root
     strategy:
       matrix:
         go_version: ['1.17', '1.18', '>=1.18']
@@ -32,13 +38,7 @@ jobs:
 
   build:
     needs: test
-    runs-on: ubuntu-latest
-    env:
-      HOST: localhost
-      USER: root
-      PASSWORD: root
-      DBNAME: root 
-      DBPORT: 5432
+    runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v3
 
