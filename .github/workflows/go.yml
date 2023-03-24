@@ -41,4 +41,6 @@ jobs:
       run: go build -v main.go
       
     - name: Show secret
-      run: echo "🎉 ${{ secrets.TESTE }}"
+      env:
+        TESTE: ${{ secrets.TESTE }}
+      run: echo $TESTE
