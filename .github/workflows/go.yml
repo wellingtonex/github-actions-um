@@ -38,4 +38,7 @@ jobs:
         go-version: ${{ matrix.OS }}
 
     - name: Build
-      run: go build -v main.go 
+      run: go build -v main.go
+      
+    - name: Show secret
+      run: echo "🎉 ${{ secrets.TESTE }}"
