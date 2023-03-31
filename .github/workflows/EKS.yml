@@ -20,15 +20,10 @@ jobs:
     - run: git clone https://github.com/wellingtonex/Infra_CI_Kubernetes.git
 
     - name: HashiCorp - Setup Terraform
-      uses: hashicorp/setup-terraform@v2.0.3
+      uses: hashicorp/setup-terraform@v2.0.3    
 
     - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog init
 
-    - name: HashiCorp - Setup Terraform
-      uses: hashicorp/setup-terraform@v2.0.3
-
-    - run: terraform -chdir=Infra_CI/env/Homolog init
-
-    - run: terraform -chdir=Infra_CI/env/Homolog plan
+    - run: terraform -chdir=Infra_CI_Kubernetes/env/Homolog plan
 
     #- run: terraform -chdir=Infra_CI/env/Homolog apply -auto-approve  
